@@ -18,7 +18,7 @@ RSpec.describe 'User registration', type: :system do
       open_email('test@example.com')
       expect(current_email.subject).to eq '登録完了'
       expect(current_email.body).to include 'Test User様'
-      expect(current_email.body).to include 'ユーザ登録が完了しました。'
+      expect(current_email.body).to include 'アカウントを登録しました。'
     end
   end
 end

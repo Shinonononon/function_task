@@ -15,7 +15,7 @@ RSpec.describe UserMailer, type: :mailer do
       expect(email.subject).to eq('登録完了') # メールの件名が正しいことを確認
 
       expect(email.body.encoded).to include("#{user.name}様") # メールの本文に特定のテキストが含まれていることを確認
-      expect(email.body.encoded).to include('ユーザ登録が完了しました。')
+      expect(email.body.encoded).to include('アカウントを登録しました。')
     end
   end
 end
