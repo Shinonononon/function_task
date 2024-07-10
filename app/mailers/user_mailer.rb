@@ -1,8 +1,7 @@
 class UserMailer < ApplicationMailer
   default from: 'admin@example.com'
 
-  def welcome_email(user)
-    @user = user
+  def welcome_email
     @name = params[:name]
     mail(to:  params[:to], subject: '登録完了')
   end
