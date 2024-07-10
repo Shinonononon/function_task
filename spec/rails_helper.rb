@@ -30,6 +30,7 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
   config.include Capybara::DSL
   config.include Capybara::Email::DSL, type: :system
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

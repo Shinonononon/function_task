@@ -8,5 +8,9 @@
 </p>
 <p>
   <strong>Image:</strong>
-  <%= image_tag @user.profile_image %>
+  <% if @user.profile_image.attached? %>
+    <%= image_tag @user.profile_image %>
+  <% else %>
+    <p>プロフフィール画像を設定していません。</p>
+  <% end %>
 </p>

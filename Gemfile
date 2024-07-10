@@ -62,3 +62,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Gemfileの一番下に記述
 gem 'image_processing'
 gem 'sidekiq'
+gem 'capybara-email'

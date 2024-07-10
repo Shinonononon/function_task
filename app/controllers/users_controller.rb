@@ -8,11 +8,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      UserMailer.welcome_email(@user).deliver_later
-      redirect_to @user, notice: 'ユーザ登録が完了しました。'
-    else
-      render :new
+
+    respond_to do |format|
+      if @user.save
+        UserMailer.welcome_email(@user).deliver_later
+        log_in(@user)
+        format.html { redirect_to user_path(@user), notice: 'ユーザ登録が完了しました.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
